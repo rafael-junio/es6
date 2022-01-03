@@ -3,9 +3,11 @@ class Message {
     this.text = text;
     this.created = created;
   }
+
   get created() {
     return this._created;
   }
+
   set created(created) {
     if (typeof created === 'undefined' || isNaN(created)) {
       throw new Error('Invalid created');
@@ -15,11 +17,15 @@ class Message {
     }
     this._created = created;
   }
+
   toString() {
     const { created, text } = this;
     return `Message created at: ${created} - Text: ${text}`;
   }
+
   static newEmptyMessage() {
     return new Message();
   }
 }
+
+module.exports = Message;
