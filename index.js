@@ -32,5 +32,6 @@ const messagesService = new MessagesService();
 messagesService.messages.then((messages) => {
   console.log(messages);
 }).catch(() => {
-  console.log(err)
+  // eslint-disable-next-line no-undef
+  console.log(err);
 });
