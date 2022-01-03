@@ -1,3 +1,6 @@
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable max-classes-per-file */
 /**
  * Main class Message
  * @author Jose Berardo Cunha
@@ -8,9 +11,11 @@ class Message {
     this.text = text;
     this.created = created;
   }
+
   get created() {
     return this._created;
   }
+
   set created(created) {
     if (typeof created === 'undefined' || isNaN(created)) {
       throw new Error('Invalid created');
@@ -20,9 +25,11 @@ class Message {
     }
     this._created = created;
   }
+
   toString() {
     return `Message created at: ${this.created} - Text: ${this.text}`;
   }
+
   static newEmptyMessage() {
     return new Message();
   }
@@ -33,8 +40,12 @@ class Message {
  * @extends {Message}
  */
 class ImageMessage extends Message {
-  constructor(text = '', created = Date.now(),
-              url = '', thumbnail = '') {
+  constructor(
+    text = '',
+    created = Date.now(),
+    url = '',
+    thumbnail = '',
+  ) {
     super(text, created);
     this.url = url;
     this.thumbnail = thumbnail;
@@ -45,16 +56,16 @@ class ImageMessage extends Message {
    * @returns String
    */
   toString() {
-    return `Photo${super.toString()} ` +
-           `- Url: ${this.url} ` +
-           `- Thumbnail: ${this.thumbnail}`;
+    return `Photo${super.toString()} `
+           + `- Url: ${this.url} `
+           + `- Thumbnail: ${this.thumbnail}`;
   }
 }
 
 // Message instances
-var emptyMessage = Message.newEmptyMessage();
-var textMessage = new Message('Yesterday message', Date.now() - 86400);
-var photoMessage = new ImageMessage();
+const emptyMessage = Message.newEmptyMessage();
+const textMessage = new Message('Yesterday message', Date.now() - 86400);
+const photoMessage = new ImageMessage();
 
 // Printing objects
 console.log(emptyMessage);
@@ -64,11 +75,11 @@ console.log(String(photoMessage));
 console.log(new Date(textMessage.created).toString());
 
 // Property shorthand
-var text = 'Some text';
-var created = Date.now();
-var duckTypeMessage = {
+const text = 'Some text';
+const created = Date.now();
+const duckTypeMessage = {
   text,
-  created
+  created,
 };
 console.log(duckTypeMessage);
 
