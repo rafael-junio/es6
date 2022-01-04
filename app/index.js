@@ -1,4 +1,15 @@
+/* eslint-disable no-undef */
 import Message from './model/message.model';
 
 console.log('Index started');
 console.dir(new Message());
+
+document.getElementById('send').onclick = () => {
+  const m = new Message(document.getElementById('message').value);
+  document.getElementById('messages').innerHTML +=
+  `<li>${m.text} ${m.created} <li>`;
+};
+
+if (module && module.hot) {
+  module.hot.accept();
+}
