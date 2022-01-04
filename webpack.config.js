@@ -34,6 +34,14 @@ const config = {
         },
         exclude: /node_modules/,
       },
+      {
+        test: /\.s[ca]ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
     ],
   },
 };
