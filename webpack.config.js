@@ -48,8 +48,15 @@ const config = {
             { loader: 'css-loader' },
             { loader: 'sass-loader' },
           ],
-          fallbackLoader: 'style-loader',
+          fallback: 'style-loader',
         }),
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        loader: 'url-loader',
+        query: {
+          name: '[name].[hash:8].[ext]',
+        },
       },
     ],
   },
