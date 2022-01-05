@@ -1,0 +1,4 @@
+    "image-webpack-loader": "^8.0.1",
+    "node-sass": "^6.0.0",
+    "typescript": "^3.0.0",
+    "awesome-typescript-loader": "^5.2.1",
